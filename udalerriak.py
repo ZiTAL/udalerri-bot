@@ -48,7 +48,7 @@ element = herriak[r]
 # url-ie sortu
 url = url+quote_plus(element)
 
-status = "Egunero Euskal Herriko herri ezberdin bet: "+element+"\n#udalerribot #zitalbot\n"+url
+status = "Egun on "+element+"!!!\n#udalerribot #zitalbot\n"+url
 
 print("udalerri-bot:")
 print("Udalerria: "+element)
