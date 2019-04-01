@@ -48,7 +48,7 @@ element = herriak[r]
 # url-ie sortu
 url = url+quote_plus(element)
 
-status = "Egun on "+element+"!!!\n#udalerribot #zitalbot\n"+url
+status = "Egun on "+element+"!!!\n#udalerribot #zitalbot\n"
 
 print("udalerri-bot:")
 print("Udalerria: "+element)
@@ -61,7 +61,7 @@ mastodon = Mastodon(
     api_base_url = 'https://mastodon.eus'
 )
 
-m = mastodon.status_post(status, None)
+m = mastodon.status_post(status+url, None)
 """
 # twitter
 """
@@ -70,7 +70,7 @@ with open(credentials_file, 'r') as f:
 	credentials = json.load(f)
 
 api = TwitterAPI(credentials['CONSUMER_KEY'], credentials['CONSUMER_SECRET'], credentials['ACCESS_TOKEN_KEY'], credentials['ACCESS_TOKEN_SECRET'])
-r = api.request('statuses/update', {'status': "#udalerribot #zitalbot\n"+m.url})
+r = api.request('statuses/update', {'status': status+m.url})
 
 """
 
