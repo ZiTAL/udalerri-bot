@@ -65,7 +65,7 @@ m = mastodon.status_post(status+url, None)
 # twitter
 credentials_file = path[0]+"/twitter.credentials"
 with open(credentials_file, 'r') as f:
-	credentials = json.load(f)
+	credentials = load(f)
 
 api = TwitterAPI(credentials['CONSUMER_KEY'], credentials['CONSUMER_SECRET'], credentials['ACCESS_TOKEN_KEY'], credentials['ACCESS_TOKEN_SECRET'])
 r = api.request('statuses/update', {'status': status+m.url})
