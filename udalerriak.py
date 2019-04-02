@@ -6,8 +6,9 @@ from json import load, dump
 from random import randint
 from hashlib import md5
 from urllib.parse import quote_plus
+from mastodon import Mastodon
 #from TwitterAPI import TwitterAPI
-#from mastodon import Mastodon
+
 
 url = "https://eu.wikipedia.org/w/index.php?search="
 
