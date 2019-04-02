@@ -55,14 +55,13 @@ print("Udalerria: "+element)
 print("status: "+status)
 
 #mastodon
-"""
 mastodon = Mastodon(
     access_token = path[0]+"/mastodon.credentials",
     api_base_url = 'https://mastodon.eus'
 )
 
 m = mastodon.status_post(status+url, None)
-"""
+
 # twitter
 """
 credentials_file = path[0]+"/twitter.credentials"
