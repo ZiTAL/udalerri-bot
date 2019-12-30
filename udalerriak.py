@@ -57,7 +57,7 @@ print("status: "+status)
 #mastodon
 mastodon = Mastodon(
     access_token = path[0]+"/mastodon.credentials",
-    api_base_url = 'https://mastodon.jalgi.eus'
+    api_base_url = 'https://botsin.space'
 )
 
 m = mastodon.status_post(status+url, None)
