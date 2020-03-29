@@ -8,6 +8,8 @@ from hashlib import md5
 from urllib.parse import quote_plus
 from mastodon import Mastodon
 from TwitterAPI import TwitterAPI
+from time import localtime
+from time import strftime
 
 url = "https://eu.wikipedia.org/w/index.php?search="
 
@@ -42,8 +44,14 @@ if len(herriak)==0:
     print("udalerri-bot: Bukatu dira udalerriak :)")
     exit()
 
-r = randint(0, len(herriak))
-element = herriak[r]
+# gudoten bat hartun
+local_time = localtime()
+local_time = strftime("%m-%d", local_time)
+if(local_time=="03-29"):
+    element = "Barrika"
+else:
+    r = randint(0, len(herriak))
+    element = herriak[r]
 
 # url-ie sortu
 url = url+quote_plus(element)
