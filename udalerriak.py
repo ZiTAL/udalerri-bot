@@ -47,7 +47,7 @@ if len(herriak)==0:
 # gudoten bat hartun
 local_time = localtime()
 local_time = strftime("%m-%d", local_time)
-if(local_time=="03-29"):
+if(local_time=="04-02"):
     element = "Barrika"
 else:
     r = randint(0, len(herriak))
