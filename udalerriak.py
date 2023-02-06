@@ -7,7 +7,7 @@ from random import randint
 from hashlib import md5
 from urllib.parse import quote_plus
 from mastodon import Mastodon
-from TwitterAPI import TwitterAPI
+#from TwitterAPI import TwitterAPI
 from time import localtime
 from time import strftime
 
@@ -71,12 +71,14 @@ mastodon = Mastodon(
 m = mastodon.status_post(status+url, None)
 
 # twitter
+"""
 credentials_file = path[0]+"/twitter.credentials"
 with open(credentials_file, 'r') as f:
 	credentials = load(f)
 
 api = TwitterAPI(credentials['CONSUMER_KEY'], credentials['CONSUMER_SECRET'], credentials['ACCESS_TOKEN_KEY'], credentials['ACCESS_TOKEN_SECRET'])
 r = api.request('statuses/update', {'status': status+m.url})
+"""
 
 # toka dan berbie cache-n sartu #
 
