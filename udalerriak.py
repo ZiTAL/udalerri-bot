@@ -68,7 +68,7 @@ mastodon = Mastodon(
     api_base_url = 'https://botsin.space'
 )
 
-m = mastodon.status_post(status+url, None)
+m = mastodon.status_post(status=status+url, visibility="public")
 
 # twitter
 """
