@@ -1,15 +1,15 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
-from sys import path, exit
-from json import load, dump
-from random import randint
-from hashlib import md5
+from sys          import path, exit
+from json         import load, dump
+from random       import randint
+from hashlib      import md5
 from urllib.parse import quote_plus
-from mastodon import Mastodon
-#from TwitterAPI import TwitterAPI
-from time import localtime
-from time import strftime
+from mastodon     import Mastodon
+
+#from time import localtime
+#from time import strftime
 
 url = "https://eu.wikipedia.org/w/index.php?search="
 
@@ -45,13 +45,19 @@ if len(herriak)==0:
     exit()
 
 # gudoten bat hartun
+"""
 local_time = localtime()
 local_time = strftime("%m-%d", local_time)
+
 if(local_time=="04-02"):
     element = "Barrika"
 else:
     r = randint(0, len(herriak))
     element = herriak[r]
+"""
+
+r = randint(0, len(herriak))
+element = herriak[r]
 
 # url-ie sortu
 url = url+quote_plus(element)
@@ -63,22 +69,16 @@ print("Udalerria: "+element)
 print("status: "+status)
 
 #mastodon
+
+with open(path[0]+"/mastodon.json", 'r') as f:
+   mastodon_config = load(f)
+
 mastodon = Mastodon(
-    access_token = path[0]+"/mastodon.credentials",
-    api_base_url = 'https://botsin.space'
+   access_token = mastodon_config['token'],
+   api_base_url = mastodon_config['instance']
 )
 
 m = mastodon.status_post(status=status+url, visibility="public")
-
-# twitter
-"""
-credentials_file = path[0]+"/twitter.credentials"
-with open(credentials_file, 'r') as f:
-	credentials = load(f)
-
-api = TwitterAPI(credentials['CONSUMER_KEY'], credentials['CONSUMER_SECRET'], credentials['ACCESS_TOKEN_KEY'], credentials['ACCESS_TOKEN_SECRET'])
-r = api.request('statuses/update', {'status': status+m.url})
-"""
 
 # toka dan berbie cache-n sartu #
 
